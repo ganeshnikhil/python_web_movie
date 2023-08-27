@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %} 
+{% block body%}
+
+<!--<script src="{{ url_for('static', filename='main.js') }}"></script>-->
+    <div class="container my-3">
+      <form action="/index" method="POST">
+        <div class="mb-3">
+          <label for="title" class="form-label"><h3>Movie Title</h1></label>
+          <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp" style="border:10px solid black;"> 
+        </div>
+        <!--
+        <div class="mb-3">
+          <label for="desc" class="form-label">Todo Description</label>
+          <input type="text" class="form-control" name="desc" id="desc">
+        </div>-->
+        
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+    </div>
+
+   <div class="container my-3">
+      <h1>Movie Summary</h1>
+      {% if allTodo|length == 0 %}
+      <div class="alert alert-dark" role="alert">
+        No Todos found. Add your first todo now!
+      </div>
+      {% else %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class="sno-header">SNo</th>
+            <th scope="col" class="title-header">Title</th>
+            <th scope="col" class="description-header">&emsp; Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for todo in allTodo %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>
+              <h3>{{ todo[0] }}</h3>
+            </td>
+            <td>
+              <h5>{{ todo[1] }}</h5>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+      
+
+   </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+{%endblock body%}

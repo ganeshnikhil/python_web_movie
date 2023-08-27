@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Netflix Intro Animation</title>
+   <style>
+      .netflix-intro {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         height: 100vh;
+         background-color: #000;
+         overflow: hidden;
+      }
+
+      .netflix-logo {
+         width: 200px;
+         height: 200px;
+         background: linear-gradient(to right, #e50914, #ff0000);
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         animation: rotate 3s ease-in-out infinite;
+      }
+
+      .netflix-logo::before {
+         content: "";
+         position: absolute;
+         width: 100px;
+         height: 100px;
+         background-color: #000;
+         border-radius: 50%;
+         animation: fade-out 3s ease-in-out infinite;
+      }
+
+      @keyframes rotate {
+         0% {
+            transform: rotate(0);
+         }
+         100% {
+            transform: rotate(1turn);
+         }
+      }
+
+      @keyframes fade-out {
+         0% {
+            opacity: 1;
+            transform: scale(1);
+         }
+         50% {
+            opacity: 0.5;
+            transform: scale(1.2);
+         }
+         100% {
+            opacity: 0;
+            transform: scale(1.5);
+         }
+      }
+   </style>
+</head>
+<body>
+   <div class="netflix-intro">
+      <div class="netflix-logo"></div>
+   </div>
+   <script> 
+      setTimeout(function() {
+              window.location.href = "/index"; // Replace "/home" with the URL of your actual home page
+           }, 3000);
+     </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <style>
+        body {
+         background-color: rgb(20,30, 1);
+      }
+        .description-header,.title-header,.sno-header{
+           white-space: nowrap;  /*Prevents the description from wrapping to a new line */
+           overflow: hidden; /* Hides any overflowing text */
+           text-overflow: ellipsis; /* Truncates the text with an ellipsis (...) if it exceeds the available space */
+           width: 650px; /* Adjust the width to your desired value */
+           animation: mymove 3s infinite;
+
+        }
+        @keyframes mymove {
+      from {background-color:rgb(139, 240, 128);}
+      to {background-color: rgb(14, 146, 131);}
+      }
+
+       table {
+          background-color:lightcoral;
+          border-collapse: collapse;
+          display: block;
+          width: 100%;
+          border: 50px double black;
+          border-block-end-style: solid;
+          border-block-end-width: 10px;
+        }
+
+        .form-label{
+        border:5px solid;
+        border-color: lightblue;
+        animation: my 5s infinite;
+       }
+       @keyframes my{
+      from {border-color:lightblue;}
+      to {border-color: blue;}
+      }
+
+       tr:not(:last-child) {
+          border-bottom: 10px solid #333366;
+        }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <script src="{{ url_for('static', filename='js/test.js') }}"></script>
+    <title> {% block title %} {% endblock title %} - MyTodo</title>
+</head>
+
+<body style="background-color:gray">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">MyTodo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                     
+                    
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+{% block body %}
+    
+{% endblock body %}
+</body>
+
+</html>
